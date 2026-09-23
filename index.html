@@ -210,20 +210,24 @@
             </div>
 
 
-            <div class="form-group">
+            
+<div class="form-group">
+    <label>
+        Add Photos 📸
+    </label>
 
-                <label>
-                    Add a Photo 📸
-                </label>
+    <input
+        type="file"
+        id="photoInput"
+        accept="image/*"
+        multiple
+        onchange="previewPhotos(event)"
+    >
 
-                <input
-                    type="file"
-                    accept="image/*"
-                    onchange="previewPhoto(event)"
-                >
-
-            </div>
-
+    <small>
+        You can add multiple memories 📸❤️
+    </small>
+</div>
 
             <div class="form-group">
 
@@ -239,6 +243,7 @@
                 ></textarea>
 
             </div>
+            
 
 
             <div class="form-group">
