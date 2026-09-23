@@ -59,22 +59,26 @@ function changeTheme(theme) {
     preview.classList.add(theme + "-theme");
 }
 
-function previewPhoto(event) {
+function previewPhotos(event) {
+    const files = event.target.files;
+    const preview = document.getElementById("photoGallery");
 
-    const file = event.target.files[0];
+    preview.innerHTML = "";
 
-    if (!file) return;
+    if (!files.length) return;
 
-    const reader = new FileReader();
+    for (let i = 0; i < files.length; i++) {
+        const reader = new FileReader();
 
-    reader.onload = function(e) {
+        reader.onload = function(e) {
+            const image = document.createElement("img");
 
-        const image = document.getElementById("previewPhoto");
+            image.src = e.target.result;
+            image.className = "gallery-photo";
 
-        image.src = e.target.result;
-        image.style.display = "block";
+            preview.appendChild(image);
+        };
 
-    };
-
-    reader.readAsDataURL(file);
-            }
+        reader.readAsDataURL(files[i]);
+    }
+}
